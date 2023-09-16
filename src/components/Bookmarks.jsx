@@ -1,10 +1,28 @@
+import SingleBookMark from "./SingleBookMark";
+import SpentTime from "./SpentTime";
+import PropTypes from 'prop-types';
 
-const Bookmarks = () => {
+const Bookmarks = ({bookMarks}) => {
     return (
-        <div className="border">
-            <h3>Bookmarks Component.</h3>
+        <div>
+            <div className="sticky top-8">
+                <SpentTime />
+                <div className="mt-6 bg-[rgba(17,17,17,0.05)] rounded-md p-7">
+                    <h3 className="text-2xl font-bold">Bookmarked Blogs : {bookMarks.length}</h3>
+                    <div className="mt-5 grid grid-cols-1 gap-4">
+                        {
+                            bookMarks.map(bookMark => <SingleBookMark
+                             key={bookMark.id}
+                             bookMark={bookMark}
+                            />)
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
-
+Bookmarks.propTypes = {
+    bookMarks : PropTypes.array.isRequired
+}
 export default Bookmarks;
