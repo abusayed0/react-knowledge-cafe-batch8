@@ -10,8 +10,8 @@ const Blogs = () => {
         .then(data => console.log(data))
     },[]);
     return (
-        <div>
-            <h3>Blogs Component</h3>
+        <div className="lg:col-span-2 border">
+            <h3 className="text-2xl md-text-3xl font-bold">Blogs - {blogs.length}</h3>
             
         </div>
     );
